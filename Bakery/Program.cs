@@ -10,6 +10,19 @@ class Program
     List<Pastry> pastryOrder = createPastries(order[1]);
     int total = calculateTotal(breadOrder, pastryOrder);
     printOrder(total, breadOrder, pastryOrder);
+    bool addMore = addMoreToOrder();
+    int totalBread = order[0];
+    int totalPastry = order[1];
+    while(addMore){
+      List<int> reorder = ReorderMessage();
+      totalBread += reorder[0];
+      totalPastry += reorder[1];
+      breadOrder = createBreads(reorder[0]);
+      pastryOrder = createPastries(reorder[1]);
+      total = calculateTotal(breadOrder, pastryOrder);
+      printOrder(total, breadOrder, pastryOrder);
+      addMore = addMoreToOrder();
+    }
   }
 
 //==================================================================================
@@ -47,6 +60,17 @@ class Program
     return total;
   }
 
+  static bool addMoreToOrder(){
+    Console.WriteLine("Add more to your order?");
+    string userAddMore = Console.ReadLine();
+    if (userAddMore == "yes" || userAddMore == "1" || userAddMore == "true"){
+      return true;
+    } else {
+      return false;
+    }
+    
+  }
+
 //==================================================================================
 //                                  User Interface
 //==================================================================================
@@ -60,6 +84,22 @@ class Program
     int numberOfPastry = int.Parse(Console.ReadLine());
 
     Console.WriteLine("Okay, " + numberOfPastry + " pieces of pastry coming up.");
+    List<int> returnAmountsList = new List<int>();
+    returnAmountsList.Add(numberOfBread);
+    returnAmountsList.Add(numberOfPastry);
+    return returnAmountsList;
+  }
+
+  static List<int> ReorderMessage(){
+    Console.WriteLine("How many pieces of bread would you like?");
+    int numberOfBread = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Okay, " + numberOfBread + " more loaves of bread coming up.");
+
+    Console.WriteLine("How many pastries would you like?");
+    int numberOfPastry = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Okay, " + numberOfPastry + " more pieces of pastry coming up.");
     List<int> returnAmountsList = new List<int>();
     returnAmountsList.Add(numberOfBread);
     returnAmountsList.Add(numberOfPastry);
