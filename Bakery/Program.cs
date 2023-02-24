@@ -70,12 +70,24 @@ class Program
     Console.WriteLine("Your total comes out to: $" + total);
     Console.WriteLine("You ordered: ");
     Console.WriteLine("BREAD: ");
-    foreach(Bread aBread in breadList){
-      Console.WriteLine("Bread #" + aBread.GetId().ToString() + " ----- $" + aBread.GetPrice());
+    int dashes = breadList.Count / 100 + 15;
+    for(int i = 0; i < breadList.Count; i++){
+      String amountLine = "Bread #" + breadList[i].GetId().ToString();
+      Console.Write(amountLine);
+      for(int j = 0; j < (dashes - (amountLine.Length)); j++){
+        Console.Write("-");
+      }
+      Console.WriteLine("$" + breadList[i].GetPrice());
     }
     Console.WriteLine("PASTRIES: ");
-    foreach(Pastry aPastry in pastryList){
-      Console.WriteLine("Bread #" + aPastry.GetId().ToString() + " ----- $" + aPastry.GetPrice());
+    dashes = pastryList.Count / 100 + 15;
+    for(int i = 0; i < pastryList.Count; i++){
+      String amountLine = "Pastry #" + pastryList[i].GetId().ToString();
+      Console.Write(amountLine);
+      for(int j = 0; j < (dashes - (amountLine.Length)); j++){
+        Console.Write("-");
+      }
+      Console.WriteLine("$" + pastryList[i].GetPrice());
     }
   }
 }
