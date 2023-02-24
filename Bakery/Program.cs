@@ -17,8 +17,8 @@ class Program
       List<int> reorder = ReorderMessage();
       totalBread += reorder[0];
       totalPastry += reorder[1];
-      breadOrder = createBreads(reorder[0]);
-      pastryOrder = createPastries(reorder[1]);
+      breadOrder = createBreads(totalBread);
+      pastryOrder = createPastries(totalPastry);
       total = calculateTotal(breadOrder, pastryOrder);
       printOrder(total, breadOrder, pastryOrder);
       addMore = addMoreToOrder();
