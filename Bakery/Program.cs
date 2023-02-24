@@ -9,10 +9,12 @@ class Program
     List<Bread> breadOrder = createBreads(order[0]);
     List<Pastry> pastryOrder = createPastries(order[1]);
     int total = calculateTotal(breadOrder, pastryOrder);
-    printOrder(total, breadOrder, pastryOrder);
-    bool addMore = addMoreToOrder();
+    PrintOrder(total, breadOrder, pastryOrder);
     int totalBread = order[0];
     int totalPastry = order[1];
+    Console.WriteLine("Add more to your order?");
+    string userAddMore = Console.ReadLine();
+    bool addMore = AddMoreToOrder(userAddMore);
     while(addMore){
       List<int> reorder = ReorderMessage();
       totalBread += reorder[0];
@@ -20,8 +22,10 @@ class Program
       breadOrder = createBreads(totalBread);
       pastryOrder = createPastries(totalPastry);
       total = calculateTotal(breadOrder, pastryOrder);
-      printOrder(total, breadOrder, pastryOrder);
-      addMore = addMoreToOrder();
+      PrintOrder(total, breadOrder, pastryOrder);
+      Console.WriteLine("Add more to your order?");
+      userAddMore = Console.ReadLine();
+      addMore = AddMoreToOrder(userAddMore);
     }
   }
 
@@ -60,10 +64,8 @@ class Program
     return total;
   }
 
-  static bool addMoreToOrder(){
-    Console.WriteLine("Add more to your order?");
-    string userAddMore = Console.ReadLine();
-    if (userAddMore == "yes" || userAddMore == "1" || userAddMore == "true"){
+  static bool AddMoreToOrder(String input){
+    if (input.Equals("yes") || input.Equals("1") ||  input.Equals("true")){
       return true;
     } else {
       return false;
@@ -106,7 +108,7 @@ class Program
     return returnAmountsList;
   }
 
-  static void printOrder(int total, List<Bread> breadList, List<Pastry> pastryList){
+  static void PrintOrder(int total, List<Bread> breadList, List<Pastry> pastryList){
     Console.WriteLine("Your total comes out to: $" + total);
     Console.WriteLine("You ordered: ");
     Console.WriteLine("BREAD: ");
