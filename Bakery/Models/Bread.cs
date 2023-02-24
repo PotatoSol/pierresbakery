@@ -4,13 +4,15 @@ using System;
 namespace Bakery.Models
 {
   public class Bread
-
-  {
-    
-    public Bread() 
+  { 
+    private int _id;
+    public Bread(int id) 
     {
+      _id = id;
     }
 
-
+    public int GetId(){
+      return _id;
+    }
   }
 }
