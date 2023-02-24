@@ -18,7 +18,7 @@ class Program
     List<Bread> returnBreadList = new List<Bread>();
 
     for(int i = 0; i < amountOfBread; i++){
-      returnBreadList.Add(new Bread());
+      returnBreadList.Add(new Bread(i));
     }
 
     return returnBreadList;
@@ -28,7 +28,7 @@ class Program
     List<Pastry> returnPastryList = new List<Pastry>();
 
     for(int i = 0; i < amountOfPastry; i++){
-      returnPastryList.Add(new Pastry());
+      returnPastryList.Add(new Pastry(i));
     }
 
     return returnPastryList;
