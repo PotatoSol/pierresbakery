@@ -10,10 +10,5 @@ namespace Bakery.Models
     {
     }
 
-    public string myFirstMethod() 
-    {
-
-    }
-
   }
 }
