@@ -21,5 +21,14 @@ namespace Bakery.Tests
         Assert.AreEqual(1, newPastry.GetId());
     }
 
+    [TestMethod]
+    public void PastryConstructor_CalculatesPriceCorrectly_Pastry()
+    {
+        Pastry newPastry = new Pastry(1);
+        Assert.AreEqual(2, newPastry.GetPrice());
+        Pastry freePastry = new Pastry(4);
+        Assert.AreEqual(0, freePastry.GetPrice());
+    }
+
     }
 }

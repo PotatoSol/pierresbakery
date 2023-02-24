@@ -17,8 +17,17 @@ namespace Bakery.Tests
     [TestMethod]
     public void BreadConstructor_AddsIDCorrectly_Bread()
     {
+        Bread newBread = new Bread(3);
+        Assert.AreEqual(3, newBread.GetId());
+    }
+
+    [TestMethod]
+    public void BreadConstructor_CalculatesPriceCorrectly_Bread()
+    {
         Bread newBread = new Bread(1);
-        Assert.AreEqual(1, newBread.GetId());
+        Assert.AreEqual(5, newBread.GetPrice());
+        Bread freeBread = new Bread(3);
+        Assert.AreEqual(0, freeBread.GetPrice());
     }
 
     }
