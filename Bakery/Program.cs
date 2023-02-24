@@ -89,5 +89,19 @@ class Program
       }
       Console.WriteLine("$" + pastryList[i].GetPrice());
     }
+    //printReceipt(pastryList, "PASTRIES"); <-- I can't figure out why this doesn't work
   }
+  /* Commented out because I can't figure this out
+  static void printReceipt(List<Good> inputList, String nameOfInput){
+    int dashes = inputList.Count / 100 + 15;
+    for(int i = 0; i < inputList.Count; i++){
+    String amountLine = nameOfInput + " #" + inputList[i].GetId().ToString();
+    Console.Write(amountLine);
+    for(int j = 0; j < (dashes - (amountLine.Length)); j++){
+      Console.Write("-");
+    }
+    Console.WriteLine("$" + inputList[i].GetPrice());
+  }
+  }
+  */
 }
