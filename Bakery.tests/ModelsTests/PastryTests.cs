@@ -18,16 +18,16 @@ namespace Bakery.Tests
     public void PastryConstructor_AddsIDCorrectly_Pastry()
     {
         Pastry newPastry = new Pastry(1);
-        Assert.AreEqual(1, newPastry.GetId());
+        Assert.AreEqual(1, newPastry.Id);
     }
 
     [TestMethod]
     public void PastryConstructor_CalculatesPriceCorrectly_Pastry()
     {
         Pastry newPastry = new Pastry(1);
-        Assert.AreEqual(2, newPastry.GetPrice());
+        Assert.AreEqual(2, newPastry.Price);
         Pastry freePastry = new Pastry(4);
-        Assert.AreEqual(0, freePastry.GetPrice());
+        Assert.AreEqual(0, freePastry.Price);
     }
 
     }
