@@ -5,63 +5,51 @@ namespace Bakery.Models
 {
   abstract public class Good
   { 
-    private int _id;
-    private int _price;
+    public int Id {get; private set;}
+    protected int _price;
 
     public Good(int id) 
     {
-      this._id = id;
+      this.Id = id; //I believe this is still auto-implemented
     }
 
-    abstract public int GetPrice();
-    abstract public void SetPrice();
-
-    abstract public int GetId();
   }
+
+  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   public class Bread : Good{
-    private int _id;
-    private int _price;
-    public Bread(int id) : base (id){
-      this._id = id;
-      SetPrice();
+    public int Price 
+    {
+      get 
+      {
+        return _price;
+      }
     }
 
-    public override void SetPrice(){
-      if(_id % 3 == 0){
+    public Bread(int id) : base (id){
+      if(this.Id % 3 == 0){ //for some reason, this didn't work when i put it as part of the price getter/setter
         _price = 0;
       } else {
         _price = 5;
       }
     }
-
-    public override int GetId(){
-      return _id;
-    }
-    
-    public override int GetPrice(){
-      return this._price;
-    }
   }
+
+  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     public class Pastry : Good{
-    private int _id;
-    private int _price;
-    public Pastry(int id) : base (id){
-      this._id = id;
-      SetPrice();
-    }
-    
-    public override void SetPrice(){
-        if(_id % 4 == 0){
-          _price = 0;
-        } else {
-          _price = 2;
-        }
+    public int Price 
+    {
+      get 
+      {
+        return _price;
       }
-    public override int GetId(){
-      return _id;
     }
-    public override int GetPrice(){
-      return this._price;
+
+    public Pastry(int id) : base (id){
+      if(this.Id % 4 == 0){
+        _price = 0;
+      } else {
+        _price = 3;
+      }
     }
   }
 }

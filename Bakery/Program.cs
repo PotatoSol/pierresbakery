@@ -38,6 +38,7 @@ class Program
 
     for(int i = 0; i < amountOfBread; i++){
       returnBreadList.Add(new Bread(i+1)); //Need to add 1 to the id so we don't have an id of 0
+
     }
 
     return returnBreadList;
@@ -56,10 +57,10 @@ class Program
   static int calculateTotal(List<Bread> breadList, List<Pastry> pastryList){
     int total = 0;
     foreach(Bread aBread in breadList){
-      total += aBread.GetPrice();
+      total += aBread.Price;
     }
     foreach(Pastry aPastry in pastryList){
-      total += aPastry.GetPrice();
+      total += aPastry.Price;
     }
     return total;
   }
@@ -114,22 +115,22 @@ class Program
     Console.WriteLine("BREAD: ");
     int dashes = breadList.Count / 100 + 15;
     for(int i = 0; i < breadList.Count; i++){
-      String amountLine = "Bread #" + breadList[i].GetId().ToString();
+      String amountLine = "Bread #" + breadList[i].Id.ToString();
       Console.Write(amountLine);
       for(int j = 0; j < (dashes - (amountLine.Length)); j++){
         Console.Write("-");
       }
-      Console.WriteLine("$" + breadList[i].GetPrice());
+      Console.WriteLine("$" + breadList[i].Price);
     }
     Console.WriteLine("PASTRIES: ");
     dashes = pastryList.Count / 100 + 15;
     for(int i = 0; i < pastryList.Count; i++){
-      String amountLine = "Pastry #" + pastryList[i].GetId().ToString();
+      String amountLine = "Pastry #" + pastryList[i].Id.ToString();
       Console.Write(amountLine);
       for(int j = 0; j < (dashes - (amountLine.Length)); j++){
         Console.Write("-");
       }
-      Console.WriteLine("$" + pastryList[i].GetPrice());
+      Console.WriteLine("$" + pastryList[i].Price);
     }
     //printReceipt(pastryList, "PASTRIES"); <-- I can't figure out why this doesn't work
   }
