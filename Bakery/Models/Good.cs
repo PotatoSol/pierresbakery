@@ -48,7 +48,7 @@ namespace Bakery.Models
       if(this.Id % 4 == 0){
         _price = 0;
       } else {
-        _price = 3;
+        _price = 2;
       }
     }
   }

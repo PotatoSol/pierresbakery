@@ -23,6 +23,7 @@ _Allows a user to order Bread and Pastries, applying a discount if multipler are
 * _Run 'dotnet restore'_
 * _Run 'dotnet build'_
 * _Run 'dotnet start'_
+* _If you want to run tests, run 'dotnet test' after moving to the Bakery.Tests folder_
 
 
 ## Known Bugs
